@@ -1,31 +1,3 @@
-let timer = document.getElementById("timer");
-let timer_background = document.getElementById("timer_bg");
-let seconds = 30;
-let current_index = 1;
-
-
-
-setInterval(function() {
-
-  let counter_timer = timer.innerHTML = seconds--;
-
-  if(10 <= seconds < 30 ){
-    timer_background.style.background = "#c2defd";
-  }
-
-  if(seconds < 9){
-    timer_background.style.background = "#ffe7e6";
-    timer.innerHTML = "0" + counter_timer;
-  }
-
-  if(seconds === 0){
-      seconds = 30;
-  }
- 
-}, 1000);
-
-
-
 const quizzes = [
   {
     question: "What is the largest planet in our solar system?",
@@ -73,6 +45,36 @@ const quizzes = [
 ];
 
 
+
+let timer = document.getElementById("timer");
+let timer_background = document.getElementById("timer_bg");
+let seconds = 20;
+let current_index = 1;
+
+
+
+setInterval(function() {
+
+  let counter_timer = timer.innerHTML = seconds--;
+
+  if(10 <= seconds < 30 ){
+    timer_background.style.background = "#c2defd";
+  }
+
+  if(seconds < 9){
+    timer_background.style.background = "#ffe7e6";
+    timer.innerHTML = "0" + counter_timer;
+  }
+
+  if(seconds === 0){
+      seconds = 30;
+      current_index++;
+  }
+ 
+}, 1000);
+
+
+
 let question_number = document.getElementById("question_number");
 let number_of_questions = document.getElementById("number_of_questions");
 let button_Previous = document.getElementById("button_Previous");
@@ -85,6 +87,7 @@ let quizzes_app = document.getElementById("quizzes_app");
 let Dashboard = document.getElementById("Dashboard");
 let back_button = document.getElementById("back_button");
 let button_finish = document.getElementById("button_finish");
+
 
 question_number.innerHTML = current_index;
 number_of_questions.innerHTML = quizzes.length;
@@ -153,6 +156,9 @@ button_next.addEventListener("click", () => {
 
 })
 
+
+button_Previous.classList.add("hidden");
+
 button_Previous.addEventListener("click", () => {
 
   if (current_index > 1) {
@@ -172,10 +178,7 @@ button_Previous.addEventListener("click", () => {
     button_finish.classList.add("hidden");
   }
 
-
 })
-
-
 
 
 choice_button.forEach((button) => {
@@ -199,6 +202,7 @@ let Dashboard_Qs = document.querySelectorAll(".Question_Dash");
 let answer = document.querySelectorAll(".answer");
 let user_answer = document.querySelectorAll(".your_answer");
 let Score = document.getElementById("Score");
+let check_answer = document.querySelectorAll(".check_answer"); 
 
 
 
@@ -213,15 +217,21 @@ function button_action(event) {
   let btn = event.target;
   
   let counter_score = 0;
-  user_choices.push(btn.innerText);
+  if(btn){
+    user_choices.push(btn.innerText);
+  }else{
+    user_choices.push(null);
+  }
+  
+  console.log(user_choices);
 
   for (let i = 0; i < user_choices.length; i++) {
 
     if (quizzes[i].answer === user_choices[i]) {
-        user_answer[i].classList.add("hidden");
-        counter_score++;
+       user_answer[i].classList.add("hidden");
+       counter_score++;
     }else if(quizzes[i].answer !== user_choices[i]){
-      user_answer[i].classList.remove("hidden");
+       user_answer[i].classList.remove("hidden");
        user_answer[i].innerHTML = user_choices[i];
     }
 
