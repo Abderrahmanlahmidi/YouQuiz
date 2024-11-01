@@ -98,6 +98,7 @@ Dashboard.classList.add("hidden");
 
 
 button_finish.addEventListener("click", () => {
+
   quiz_title.innerHTML = "Your Result";
   
   Dashboard.classList.remove("hidden");
@@ -217,10 +218,9 @@ function button_action(event) {
   let btn = event.target;
   
   let counter_score = 0;
+
   if(btn){
     user_choices.push(btn.innerText);
-  }else{
-    user_choices.push(null);
   }
   
   console.log(user_choices);
@@ -230,9 +230,9 @@ function button_action(event) {
     if (quizzes[i].answer === user_choices[i]) {
        user_answer[i].classList.add("hidden");
        counter_score++;
-    }else if(quizzes[i].answer !== user_choices[i]){
-       user_answer[i].classList.remove("hidden");
-       user_answer[i].innerHTML = user_choices[i];
+      }else if(quizzes[i].answer !== user_choices[i]){
+        user_answer[i].classList.remove("hidden");
+        user_answer[i].innerHTML = user_choices[i] ;
     }
 
   }
