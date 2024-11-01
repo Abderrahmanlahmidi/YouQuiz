@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <title>YouQuiz</title>
+  </head>
+  <body>
+
+    <section class="flex py-[70px] text-white bg-blue gap-10 flex-col justify-center items-center " >
+        <h1 id="quiz_title" class="text-4xl text-[#ffffff] font-bold text-center">
+          
+        </h1>
+  
+        <!-- quizzes app -->
+        <div id="quizzes_app"
+          class="w-[600px] flex-col shadow-md bg-[#ffffff] rounded-[10px] rounded-4 py-6 px-5"
+        >
+          <div
+            class="flex justify-between border-b-[1px] border-[#9ca3af] items-center py-4"
+          >
+            <div>
+              <p class="text-black">
+                <span class="text-black" id="question_number"></span> of
+                <span class="text-black" id="number_of_questions"></span> Question
+              </p>
+            </div>
+            <div
+              id="timer_bg"
+              class="flex justify-between gap-2 items-center p-2 rounded-[50px]"
+            >
+              <p class="text-black">00:<span id="timer"></span></p>
+            </div>
+          </div>
+  
+          <!-- question -->
+          <div class="py-7 flex items-center">
+            <li id="question" class="text-[18px]"></li>
+          </div>
+  
+          <!-- choices -->
+           <div class="mb-7 flex flex-col gap-y-3" >
+            <button class="py-5 active_color border-2 w-full px-7 text-start rounded-[7px] choice_button "></button>
+            <button class="py-5 border-2 w-full px-7 text-start rounded-[7px] choice_button "></button>
+            <button class="py-5 border-2 w-full px-7 text-start rounded-[7px] choice_button "></button>
+            <button class="py-5 border-2 w-full px-7 text-start rounded-[7px] choice_button "></button>
+           </div>
+  
+          <div class="flex justify-between bg-white items-center">
+            <button
+              id="button_Previous"
+              class="text-black  border-2 px-5 py-3 rounded-[10px]"
+            >
+              Previous
+            </button>
+            <div class="flex" >
+              <button
+              id="button_finish"
+              class="bg-[#0f172a] hidden px-5 py-3 text-[#ffffff] rounded-[10px]"
+               >
+              finish
+            </button>
+            <button
+              id="button_next"
+              class="bg-blue px-5 py-3 text-[#ffffff] rounded-[10px]"
+            >
+              next
+            </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Dashboard -->
+        <div 
+        id="Dashboard"
+        class="w-[600px] gap-5  flex-col shadow-md bg-[#ffffff] rounded-[10px] rounded-4 py-6 px-5"
+        >
+
+         <div  class="py-[10px]  text-center text-[20px] rounded bg-[#ebf5ff]"  >
+          <h4  class="text-[20px]  text-[#1e40af] " >Your Score is: <span id="Score"  class="text-[#166534]"></span></h4>
+         </div>
+
+         <div class="my-7 gap-7 flex flex-col" >
+
+
+
+           <div class="gap-4 flex flex-col"  >
+            <li class="text-[18px] Question_Dash" ></li>
+            <div class="w-full flex gap-3" >
+              <div class="answer rounded-lg border border-1-[#166534] text-[#166534] bg-[#f0fdf4] w-full p-[20px]" >
+                
+              </div>
+              <div class="your_answer rounded-lg border border-1-[#166534] text-[#991b1b] bg-[#fef2f2] w-full p-[20px]" >
+                 
+              </div>
+            </div>
+           </div>
+           <div class="gap-4 flex flex-col"  >
+            <li class="text-[18px] Question_Dash" ></li>
+            <div class="w-full flex gap-3" >
+              <div class="answer rounded-lg border border-1-[#166534] text-[#166534] bg-[#f0fdf4] w-full p-[20px]" >
+                
+              </div>
+              <div class="your_answer rounded-lg border border-1-[#166534] text-[#991b1b] bg-[#fef2f2] w-full p-[20px]" >
+                 
+              </div>
+            </div>
+           </div>
+           <div class="gap-4 flex flex-col"  >
+            <li class="text-[18px] Question_Dash" ></li>
+            <div class="w-full flex gap-3" >
+              <div class="answer rounded-lg border border-1-[#166534] text-[#166534] bg-[#f0fdf4] w-full p-[20px]" >
+                
+              </div>
+              <div class="your_answer rounded-lg border border-1-[#166534] text-[#991b1b] bg-[#fef2f2] w-full p-[20px]" >
+                 
+              </div>
+            </div>
+           </div>
+           <div class="gap-4 flex flex-col"  >
+            <li class="text-[18px] Question_Dash" ></li>
+            <div class="w-full flex gap-3" >
+              <div class="answer rounded-lg border border-1-[#166534] text-[#166534] bg-[#f0fdf4] w-full p-[20px]" >
+                
+              </div>
+              <div class="your_answer rounded-lg border border-1-[#166534] text-[#991b1b] bg-[#fef2f2] w-full p-[20px]" >
+                 
+              </div>
+            </div>
+           </div>
+           <div class="gap-4 flex flex-col"  >
+            <li class="text-[18px] Question_Dash" ></li>
+            <div class="w-full flex gap-3" >
+              <div class="answer rounded-lg border border-1-[#166534] text-[#166534] bg-[#f0fdf4] w-full p-[20px]" >
+                
+              </div>
+              <div class="your_answer rounded-lg border border-1-[#166534] text-[#991b1b] bg-[#fef2f2] w-full p-[20px]" >
+                 
+              </div>
+            </div>
+           </div>
+           <div class="gap-4 flex flex-col"  >
+            <li class="text-[18px] Question_Dash" ></li>
+            <div class="w-full flex gap-3" >
+              <div class="answer rounded-lg border border-1-[#166534] text-[#166534] bg-[#f0fdf4] w-full p-[20px]" >
+                
+              </div>
+              <div class="your_answer rounded-lg border border-1-[#166534] text-[#991b1b] bg-[#fef2f2] w-full p-[20px]" >
+                 
+              </div>
+            </div>
+           </div>
+           <div class="gap-4 flex flex-col"  >
+            <li class="text-[18px] Question_Dash" ></li>
+            <div class="w-full flex gap-3" >
+              <div class="answer rounded-lg border border-1-[#166534] text-[#166534] bg-[#f0fdf4] w-full p-[20px]" >
+                
+              </div>
+              <div class="your_answer rounded-lg border border-1-[#166534] text-[#991b1b] bg-[#fef2f2] w-full p-[20px]" >
+                 
+              </div>
+            </div>
+           </div>
+
+
+
+         </div>
+
+
+         <button
+         id="back_button"
+         class="bg-blue px-5 py-3 text-[#ffffff] rounded-[10px]"
+       >
+         back
+       </button>
+
+      </div>
+    </section>
+  </body>
+
+  <script src="./js/main.js"></script>
+</html>
