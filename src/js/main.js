@@ -206,39 +206,31 @@ let Score = document.getElementById("Score");
 let check_answer = document.querySelectorAll(".check_answer"); 
 
 
-
-for (let i = 0; i < quizzes.length; i++) {
-   Dashboard_Qs[i].innerHTML = quizzes[i].question;
-   answer[i].innerHTML = quizzes[i].answer;
-}
-
 let user_choices = [];
 
 function button_action(event) {
   let btn = event.target;
   
   let counter_score = 0;
+   
+  user_choices.push(btn.innerText);
 
-  if(btn){
-    user_choices.push(btn.innerText);
-  }
-  
-  console.log(user_choices);
-
-  for (let i = 0; i < user_choices.length; i++) {
-
+  for (let i = 0; i < quizzes.length; i++) {
     if (quizzes[i].answer === user_choices[i]) {
-       user_answer[i].classList.add("hidden");
-       counter_score++;
-      }else if(quizzes[i].answer !== user_choices[i]){
-        user_answer[i].classList.remove("hidden");
-        user_answer[i].innerHTML = user_choices[i] ;
+      Dashboard_Qs[i].innerHTML = quizzes[i].question;
+      answer[i].innerHTML = quizzes[i].answer;
+      user_answer[i].classList.add("hidden");
+      counter_score++;
+    }else if(quizzes[i].answer !== user_choices[i]){
+      Dashboard_Qs[i].innerHTML = quizzes[i].question;
+      answer[i].innerHTML = quizzes[i].answer;
+      user_answer[i].innerHTML = user_choices[i];
     }
-
   }
 
   Score.innerHTML = counter_score;
 }
+
 
 
 
